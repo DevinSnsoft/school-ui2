@@ -1,0 +1,56 @@
+definitions:
+  app.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      msg:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: base on gin
+  title: schoolServer
+  version: "1.0"
+paths:
+  /school:
+    get:
+      parameters:
+      - description: is_firstuniversity
+        in: query
+        name: is_firstuniversity
+        type: string
+      - description: is_firstdiscipline
+        in: query
+        name: is_firstdiscipline
+        type: string
+      - description: is_985
+        in: query
+        name: is_985
+        type: string
+      - description: is_211
+        in: query
+        name: is_211
+        type: string
+      - description: school_zone
+        in: query
+        name: school_zone
+        type: string
+      - description: searchText
+        in: query
+        name: searchText
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Get school
+swagger: "2.0"

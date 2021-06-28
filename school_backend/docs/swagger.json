@@ -1,0 +1,87 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "base on gin",
+        "title": "schoolServer",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/school": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get school",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "is_firstuniversity",
+                        "name": "is_firstuniversity",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "is_firstdiscipline",
+                        "name": "is_firstdiscipline",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "is_985",
+                        "name": "is_985",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "is_211",
+                        "name": "is_211",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "school_zone",
+                        "name": "school_zone",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "searchText",
+                        "name": "searchText",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/app.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "app.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "object"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
